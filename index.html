@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2f5f9" />
+    <title>Skillaz — динамическая главная</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Основное меню">
+        <a class="brand" href="#" aria-label="Skillaz">
+          <span class="brand-logo" aria-hidden="true">
+            <img class="brand-symbol" src="./assets/figma/logo-mark.svg" alt="" />
+            <img class="brand-wordmark" src="./assets/figma/logo-wordmark.svg" alt="" />
+          </span>
+        </a>
+
+        <label class="menu-search">
+          <img class="icon-16" src="./assets/figma/search.svg" alt="" aria-hidden="true" />
+          <input aria-label="Поиск по меню" placeholder="Поиск по меню" />
+        </label>
+
+        <nav class="side-nav">
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-team.svg" alt="" /><span>Моя команда</span></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-company.svg" alt="" /><span>Моя компания</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-requests.svg" alt="" /><span>Заявки и запросы</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-effectiveness.svg" alt="" /><span>Эффективность</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-learning.svg" alt="" /><span>Обучение</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-career.svg" alt="" /><span>Карьера</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-mentoring.svg" alt="" /><span>Наставничество</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-appraisal.svg" alt="" /><span>Оценка</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-other.svg" alt="" /><span>Другое</span><img class="nav-chevron" src="./assets/figma/chevron-down.svg" alt="" /></a>
+          <a href="#"><img class="nav-icon" src="./assets/figma/nav-external.svg" alt="" /><span>Внешние ссылки</span></a>
+        </nav>
+
+        <a class="support-link" href="#"><img class="nav-icon" src="./assets/figma/nav-support.svg" alt="" /><span>Поддержка</span></a>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <img class="mobile-brand" src="./assets/figma/logo-mark.svg" alt="Skillaz" />
+          <button class="portal-switch">Портал <img class="icon-16" src="./assets/figma/header-chevron.svg" alt="" aria-hidden="true" /></button>
+          <div class="profile">
+            <button class="bell" aria-label="Уведомления">
+              <img class="icon-16" src="./assets/figma/bell.svg" alt="" aria-hidden="true" />
+            </button>
+            <img class="avatar" src="./assets/figma/avatar.png" alt="" aria-hidden="true" />
+            <span class="profile-name">Виктория Миронова</span>
+            <img class="profile-caret icon-16" src="./assets/figma/header-chevron.svg" alt="" aria-hidden="true" />
+          </div>
+          <button class="mobile-menu" id="mobileMenu" aria-label="Открыть меню" aria-expanded="false"><span class="mobile-menu-icon" aria-hidden="true"></span></button>
+        </header>
+
+        <main class="main-page">
+          <section class="page-surface" aria-labelledby="pageTitle">
+            <header class="page-heading">
+              <h1 id="pageTitle">Добрый день, Виктория</h1>
+              <button class="settings-button">
+                <img class="icon-16" src="./assets/figma/settings.svg" alt="" aria-hidden="true" />
+                Настроить
+              </button>
+            </header>
+
+            <section class="dynamic-widget" aria-labelledby="widgetTitle">
+              <div class="widget-heading">
+                <div>
+                  <h2 id="widgetTitle">Собрали важное для вас <img class="widget-sparkle" src="./assets/figma/sparkle.svg" alt="" aria-hidden="true" /></h2>
+                  <p>Сначала показываем то, что требует вашего действия раньше</p>
+                </div>
+              </div>
+
+              <div class="tabs-scroller" aria-label="Фильтры динамической главной">
+                <div class="tabs" id="tabs" role="tablist"></div>
+              </div>
+
+              <div class="cards-grid" id="cards" aria-live="polite"></div>
+
+              <button class="show-all" id="showAll" aria-expanded="false">
+                <span>Показать все</span>
+                <img class="show-all-chevron icon-16" src="./assets/figma/chevron-down.svg" alt="" aria-hidden="true" />
+              </button>
+            </section>
+
+            <section class="news-section" aria-labelledby="newsTitle">
+              <div class="section-heading">
+                <h2 id="newsTitle">Новости</h2>
+                <button class="all-news">Смотреть все</button>
+              </div>
+
+              <div class="news-layout">
+                <article class="news-feature">
+                  <img src="./assets/news-team.jpg" alt="Команда компании празднует результаты квартала" />
+                  <h3>Компания завершила второй квартал с рекордными показателями</h3>
+                  <p>Мы верим, что бизнес существует благодаря людям, их талантам и способностям, поэтому создаём все условия для развития команды.</p>
+                  <div class="news-meta"><span>20 июн</span><span><img class="meta-icon" src="./assets/figma/heart.svg" alt="" />501</span><span><img class="meta-icon" src="./assets/figma/comment.svg" alt="" />120</span></div>
+                </article>
+
+                <article class="news-feature">
+                  <img src="./assets/news-cat.jpg" alt="Рыжий кот" />
+                  <h3>Мы стали партнёрами международной конференции по инновациям</h3>
+                  <p>В этом году эксперты Skillaz поделятся практиками развития и расскажут о новых подходах к работе с командами.</p>
+                  <div class="news-meta"><span>20 июн</span><span><img class="meta-icon" src="./assets/figma/heart.svg" alt="" />501</span><span><img class="meta-icon" src="./assets/figma/comment.svg" alt="" />120</span></div>
+                </article>
+
+                <div class="news-list" aria-label="Другие новости">
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-1.png" alt="" /><span>Запуск новой линейки продуктов: стратегия развития на 2027 год</span></a>
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-2.png" alt="" /><span>От идеи к реализации: история успеха нашего проекта</span></a>
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-3.png" alt="" /><span>Гордимся вами: награждение лучших сотрудников квартала</span></a>
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-4.png" alt="" /><span>Внедрение ESG-принципов в операционную деятельность компании</span></a>
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-5.png" alt="" /><span>Мастер-класс от экспертов: лучшие практики командной работы</span></a>
+                  <a href="#"><img class="news-thumb" src="./assets/figma/news-thumb-3.png" alt="" /><span>Гордимся вами: награждение лучших сотрудников квартала</span></a>
+                </div>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js?v=5"></script>
+  </body>
+</html>
